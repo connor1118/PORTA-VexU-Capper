@@ -38,7 +38,9 @@
 
 #include "Base.hpp"
 #include "expansion.hpp"
-#include "claw.hpp"
+#include "shooter.hpp"
+#include "adjuster.hpp"
+#include "intake.hpp"
 
 /**
  * You should add more #includes here

@@ -1,34 +1,34 @@
 #include "main.h"
 
-Motor expansion(5, MOTOR_GEARSET_18, 0,  MOTOR_ENCODER_DEGREES);
-Motor expansion1(6, MOTOR_GEARSET_18, 1,  MOTOR_ENCODER_DEGREES);
+Motor arm(8, MOTOR_GEARSET_18, 0,  MOTOR_ENCODER_DEGREES);
 
-void expansionOP()
+
+void armOP()
 {
   if(controller.get_digital(DIGITAL_R1))
   {
-    expansion.move_velocity(200);
-    expansion1.move_velocity(200);
+    arm.move_velocity(200);
   }
   else if(controller.get_digital(DIGITAL_R2))
   {
-    expansion.move_velocity(-200);
-    expansion1.move_velocity(-200);
+    arm.move_velocity(-200);
   }
   else
   {
-    expansion.move_velocity(0);
-    expansion1.move_velocity(0);
+    arm.move_velocity(0);
   }
 }
 
-void expand(int height)
+void swing(int pos)
 {
-  expansion.move_relative(height, 100);
-  expansion1.move_relative(height, 100);
+  if(pos > 0)
+  arm.move(100);
 
-  int target = height;
-  while(!((expansion.get_position() < target+3) && (expansion.get_position() > target-3)))
+  else
+  arm.move(-100);
+
+  int target = pos;
+  while(!((arm.get_position() < target+3) && (arm.get_position() > target-3)))
     {
       delay(2);
     }
