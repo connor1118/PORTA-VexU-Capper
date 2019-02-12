@@ -56,7 +56,7 @@ bool isDriving()
   int rightPos = rightDrive.get_position();
 
   int curr = (abs(leftPos) + abs(rightPos))/2;
-  int thresh = 3;
+  int thresh = 2;
   int target = distance;
 
   if(abs(last-curr) < thresh)
@@ -71,11 +71,12 @@ bool isDriving()
   last = curr;
 
   //not driving if we haven't moved
-  if(count > 4)
+  if(count > 6)
     return false;
   else
     return true;
 }
+
 
 void leftSlew(int slewSpeed, bool decel)
 {
@@ -347,11 +348,11 @@ void turn(int degrees)
       prevError = error;
       int speed = error*kp + derivative*kd;
 
-      if(speed > highBaseVelocity)
-        speed = highBaseVelocity;
+      if(speed > medBaseVelocity)
+        speed = medBaseVelocity;
 
-      if(speed < -highBaseVelocity)
-        speed = -highBaseVelocity;
+      if(speed < -medBaseVelocity)
+        speed = -medBaseVelocity;
 
 
       leftSlew(-speed, 0);
