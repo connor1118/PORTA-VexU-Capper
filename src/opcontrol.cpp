@@ -1,5 +1,7 @@
 #include "main.h"
 
+Controller controller (CONTROLLER_MASTER);
+
 void opcontrol() {
 	while(true)
 	{

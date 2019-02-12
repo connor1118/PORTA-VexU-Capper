@@ -1,6 +1,6 @@
 #include "main.h"
 
-Motor shooter(5, MOTOR_GEARSET_18, 0,  MOTOR_ENCODER_DEGREES);
+Motor shooter(5, MOTOR_GEARSET_18, 1,  MOTOR_ENCODER_DEGREES);
 Motor shooter1(6, MOTOR_GEARSET_18, 0, MOTOR_ENCODER_DEGREES);
 
 void shooterOP()

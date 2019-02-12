@@ -3,5 +3,6 @@
 
 void armOP();
 void swing(int pos);
+void swingSlow(int pos);
 
 #endif

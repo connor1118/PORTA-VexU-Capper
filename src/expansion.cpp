@@ -2,34 +2,37 @@
 
 Motor arm(8, MOTOR_GEARSET_18, 0,  MOTOR_ENCODER_DEGREES);
 
-
+void lift(int vel)
+{
+  arm.set_brake_mode(MOTOR_BRAKE_HOLD);
+  arm.move_velocity(vel);
+}
 void armOP()
 {
-  if(controller.get_digital(DIGITAL_R1))
+  if(controller.get_digital(DIGITAL_UP))
   {
-    arm.move_velocity(200);
+    lift(100);
   }
-  else if(controller.get_digital(DIGITAL_R2))
+  else if(controller.get_digital(DIGITAL_DOWN))
   {
-    arm.move_velocity(-200);
+    lift(-100);
   }
   else
   {
-    arm.move_velocity(0);
+    lift(0);
   }
 }
 
 void swing(int pos)
 {
-  if(pos > 0)
-  arm.move(100);
+  arm.set_brake_mode(MOTOR_BRAKE_HOLD);
+  pos *= 5;
+  arm.move_absolute(pos, 200);
+}
 
-  else
-  arm.move(-100);
-
-  int target = pos;
-  while(!((arm.get_position() < target+3) && (arm.get_position() > target-3)))
-    {
-      delay(2);
-    }
+void swingSlow(int pos)
+{
+  arm.set_brake_mode(MOTOR_BRAKE_HOLD);
+  pos *= 5;
+  arm.move_absolute(pos, 60);
 }

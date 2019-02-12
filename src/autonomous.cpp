@@ -44,6 +44,13 @@ void blue()
 
 void test()
 {
+//flipDrive();
+//turn(180);
+drive(20);
+//swing(90);
+//drive(20);
+
+//drive(-20);
 
 }
 
