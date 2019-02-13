@@ -4,7 +4,7 @@ Motor arm(8, MOTOR_GEARSET_18, 0,  MOTOR_ENCODER_DEGREES);
 
 void lift(int vel)
 {
-  arm.set_brake_mode(MOTOR_BRAKE_HOLD);
+  arm.set_brake_mode(MOTOR_BRAKE_BRAKE);
   arm.move_velocity(vel);
 }
 void armOP()
@@ -25,14 +25,14 @@ void armOP()
 
 void swing(int pos)
 {
-  arm.set_brake_mode(MOTOR_BRAKE_HOLD);
+  arm.set_brake_mode(MOTOR_BRAKE_BRAKE);
   pos *= 5;
   arm.move_absolute(pos, 200);
 }
 
 void swingSlow(int pos)
 {
-  arm.set_brake_mode(MOTOR_BRAKE_HOLD);
+  arm.set_brake_mode(MOTOR_BRAKE_BRAKE);
   pos *= 5;
   arm.move_absolute(pos, 60);
 }
