@@ -247,7 +247,7 @@ void driveHard(int inches)
 void turn(int degrees)
 {
   resetDrive();
-    distance = degrees*3.4;
+    distance = degrees*3.325;
     int prevError = 0;
     int sp = distance;
 
