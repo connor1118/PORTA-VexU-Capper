@@ -158,8 +158,8 @@ void drive(int inches)
     int prevError = 0;
     int sp = distance;
 
-    double kp = .35;
-    double kd = 0.5;
+    double kp = .3;
+    double kd = 0.4;
 
     do
     {

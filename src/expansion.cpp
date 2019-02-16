@@ -27,7 +27,7 @@ void swing(int pos)
 {
   arm.set_brake_mode(MOTOR_BRAKE_BRAKE);
   pos *= 5;
-  arm.move_absolute(pos, 200);
+  arm.move_absolute(pos, 120);
 }
 
 void swingSlow(int pos)
