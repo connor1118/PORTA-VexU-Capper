@@ -78,12 +78,53 @@ void red()
 
 void blue()
 {
-
+  //first shot and wall align
+  shoot();
+  turn(70);
+  driveHard(-5);
+  //to first cap
+  drive(38);
+  intakeDrive();
+  intake();
+  drive(-6);
+  stopIntake();
+  drive(16);
+  drive(-3);
+  //line up and grab second cap
+  turn(-95);
+  drive(-10);
+  driveHard(-5);
+  swing(100);
+  //drive(4);
+  //delay(500);
+  drive(5);  // was -2 for far post
+  turn(-95);
+/*  drive(48);
+  drive(6);*/
+  //close post
+  drive(25);
+  turn(-95);
+  drive(14);
+  drive(5);
+  //both
+  swingSlow(192);
+  delay(2000);
+  drive(-10);
+  swing(0);
+  turn(-90);
+  drive(-30);
+  intake();
+  drive(5);
+  turn(-80);
+  stopIntake();
+  adjust(0);
+  shoot();
 }
 
 void test()
 {
-  drive(30);
+  turn(-90);
+//  drive(30);
 /*swing(150);
 delay(2000);
 swingSlow(185);

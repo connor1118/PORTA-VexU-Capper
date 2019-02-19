@@ -90,7 +90,7 @@ void leftSlew(int slewSpeed, bool decel)
   {
     if(decel)
     {
-    step = 10;
+    step = 7;
     }
     else
     {
@@ -125,7 +125,7 @@ void rightSlew(int slewSpeed, bool decel)
   {
     if(decel)
     {
-    step = 10;
+    step = 7;
     }
     else
     {
@@ -182,8 +182,8 @@ void drive(int inches)
         speed = -highBaseVelocity;
       }
 
-      leftSlew(speed, 0);
-      rightSlew(speed, 0);
+      leftSlew(speed, 1);
+      rightSlew(speed, 1);
       printf("%d\n", error);
       delay(20);
     }
