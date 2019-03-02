@@ -28,7 +28,7 @@ void intakeDrive()
 
 void skills()
 {
-
+//I wish you could do skills with both bots
 }
 
 void red()
@@ -50,18 +50,14 @@ void red()
   drive(-10);
   driveHard(-5);
   swing(100);
-  //drive(4);
-  //delay(500);
-  drive(5);  // was -2 for far post
+  drive(5);
   turn(90);
-/*  drive(48);
-  drive(6);*/
   //close post
   drive(22);
   turn(90);
   drive(16);
   drive(5);
-  //both
+  //stack cap, turn, align, and shoot middle flag
   swingSlow(192);
   delay(2000);
   drive(-10);
@@ -95,18 +91,13 @@ void blue()
   drive(-10);
   driveHard(-5);
   swing(100);
-  //drive(4);
-  //delay(500);
-  drive(5);  // was -2 for far post
-  turn(-90);
-/*  drive(48);
-  drive(6);*/
-  //close post
-  drive(20);
-  turn(-90);
-  drive(16);
   drive(5);
-  //both
+  turn(-95);
+  drive(25);
+  turn(-95);
+  drive(14);
+  drive(5);
+  //stack cap, turn, align, and shoot middle flag
   swingSlow(192);
   delay(2000);
   drive(-10);
@@ -124,27 +115,6 @@ void blue()
 void test()
 {
   turn(-90);
-//  drive(30);
-/*swing(150);
-delay(2000);
-swingSlow(185);
-delay(1000);
-//turn(90);
-intakeDrive();
-adjust(1);
-shoot();
-turn(180);
-drive(-5);
-swingSlow(10);
-drive(-3);
-swing(50);
-delay(1000);
-drive(20);
-turn(180);
-swing(0);*/
-
-
-//drive(-20);
 
 }
 
