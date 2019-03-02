@@ -43,8 +43,8 @@ void red()
   intake();
   drive(-6);
   stopIntake();
-  drive(16);
-  drive(-3);
+  drive(15);
+  drive(-5);
   //line up and grab second cap
   turn(90);
   drive(-10);
@@ -57,7 +57,7 @@ void red()
 /*  drive(48);
   drive(6);*/
   //close post
-  drive(20);
+  drive(22);
   turn(90);
   drive(16);
   drive(5);
@@ -70,7 +70,7 @@ void red()
   drive(-30);
   intake();
   drive(5);
-  turn(80);
+  turn(82);
   stopIntake();
   adjust(0);
   shoot();
@@ -88,23 +88,23 @@ void blue()
   intake();
   drive(-6);
   stopIntake();
-  drive(16);
-  drive(-3);
+  drive(15);
+  drive(-2);
   //line up and grab second cap
-  turn(-95);
+  turn(-92);
   drive(-10);
   driveHard(-5);
   swing(100);
   //drive(4);
   //delay(500);
   drive(5);  // was -2 for far post
-  turn(-95);
+  turn(-90);
 /*  drive(48);
   drive(6);*/
   //close post
-  drive(25);
-  turn(-95);
-  drive(14);
+  drive(20);
+  turn(-90);
+  drive(16);
   drive(5);
   //both
   swingSlow(192);
@@ -115,7 +115,7 @@ void blue()
   drive(-30);
   intake();
   drive(5);
-  turn(-80);
+  turn(-82);
   stopIntake();
   adjust(0);
   shoot();
