@@ -11,26 +11,55 @@ static int distance = 0;
 //DEFINING MOTORS
 Motor leftDrive(1, MOTOR_GEARSET_18, 0,  MOTOR_ENCODER_DEGREES);
 Motor leftDrive1(2, MOTOR_GEARSET_18, 0, MOTOR_ENCODER_DEGREES);
+Motor leftDrive2(12, MOTOR_GEARSET_18, 0, MOTOR_ENCODER_DEGREES);
 
 Motor rightDrive(3, MOTOR_GEARSET_18, 1, MOTOR_ENCODER_DEGREES);
 Motor rightDrive1(4, MOTOR_GEARSET_18, 1, MOTOR_ENCODER_DEGREES);
-
+Motor rightDrive2(11, MOTOR_GEARSET_18, 1, MOTOR_ENCODER_DEGREES);
 
 
 void driveOP()
 {
+
+  int L = controller.get_analog(ANALOG_LEFT_Y);
+  int R = controller.get_analog(ANALOG_RIGHT_Y);
+
+  if((L > 10 && R < -10) || (L < -10 && R > 10))
+  {
+    leftDrive.move(L*.9);
+    leftDrive1.move(L*.9);
+    leftDrive2.move(L*.9);
+    rightDrive.move(R*.9);
+    rightDrive1.move(R*.9);
+    rightDrive2.move(R*.9);
+  }
+
+  else
+  {
+      leftDrive.move(L);
+      leftDrive1.move(L);
+      leftDrive2.move(L);
+      rightDrive.move(R);
+      rightDrive1.move(R);
+      rightDrive2.move(R);
+  }
+
+  /*
   leftDrive.move(controller.get_analog(ANALOG_LEFT_Y));
   leftDrive1.move(controller.get_analog(ANALOG_LEFT_Y));
   rightDrive.move(controller.get_analog(ANALOG_RIGHT_Y));
   rightDrive1.move(controller.get_analog(ANALOG_RIGHT_Y));
+  */
 }
 
 void resetDrive()
 {
   leftDrive.tare_position();
   leftDrive1.tare_position();
+  leftDrive2.tare_position();
   rightDrive.tare_position();
   rightDrive1.tare_position();
+  rightDrive2.tare_position();
 }
 
 
@@ -38,12 +67,14 @@ void left(int speed)
 {
   leftDrive.move(speed);
   leftDrive1.move(speed);
+  leftDrive2.move(speed);
 }
 
 void right(int speed)
 {
   rightDrive.move(speed);
   rightDrive1.move(speed);
+  rightDrive2.move(speed);
 }
 
 bool isDriving()
