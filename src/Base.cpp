@@ -12,10 +12,12 @@ static int distance = 0;
 Motor leftDrive(1, MOTOR_GEARSET_18, 0,  MOTOR_ENCODER_DEGREES);
 Motor leftDrive1(2, MOTOR_GEARSET_18, 0, MOTOR_ENCODER_DEGREES);
 Motor leftDrive2(12, MOTOR_GEARSET_18, 0, MOTOR_ENCODER_DEGREES);
+Motor leftDrive3(13, MOTOR_GEARSET_18, 0, MOTOR_ENCODER_DEGREES);
 
 Motor rightDrive(3, MOTOR_GEARSET_18, 1, MOTOR_ENCODER_DEGREES);
 Motor rightDrive1(4, MOTOR_GEARSET_18, 1, MOTOR_ENCODER_DEGREES);
 Motor rightDrive2(11, MOTOR_GEARSET_18, 1, MOTOR_ENCODER_DEGREES);
+Motor rightDrive3(14, MOTOR_GEARSET_18, 1, MOTOR_ENCODER_DEGREES);
 
 
 void driveOP()
@@ -29,9 +31,11 @@ void driveOP()
     leftDrive.move(L*.9);
     leftDrive1.move(L*.9);
     leftDrive2.move(L*.9);
+    leftDrive3.move(L*.9);
     rightDrive.move(R*.9);
     rightDrive1.move(R*.9);
     rightDrive2.move(R*.9);
+    rightDrive3.move(R*.9);
   }
 
   else
@@ -39,9 +43,12 @@ void driveOP()
       leftDrive.move(L);
       leftDrive1.move(L);
       leftDrive2.move(L);
+      leftDrive3.move(L);
+
       rightDrive.move(R);
       rightDrive1.move(R);
       rightDrive2.move(R);
+      rightDrive3.move(R);
   }
 
   /*
@@ -57,9 +64,11 @@ void resetDrive()
   leftDrive.tare_position();
   leftDrive1.tare_position();
   leftDrive2.tare_position();
+  leftDrive3.tare_position();
   rightDrive.tare_position();
   rightDrive1.tare_position();
   rightDrive2.tare_position();
+  rightDrive3.tare_position();
 }
 
 
@@ -68,6 +77,7 @@ void left(int speed)
   leftDrive.move(speed);
   leftDrive1.move(speed);
   leftDrive2.move(speed);
+  leftDrive3.move(speed);
 }
 
 void right(int speed)
@@ -75,6 +85,7 @@ void right(int speed)
   rightDrive.move(speed);
   rightDrive1.move(speed);
   rightDrive2.move(speed);
+  rightDrive3.move(speed);
 }
 
 bool isDriving()
@@ -102,7 +113,7 @@ bool isDriving()
   last = curr;
 
   //not driving if we haven't moved
-  if(count > 6)
+  if(count > 8)
     return false;
   else
     return true;
@@ -229,8 +240,12 @@ void driveHard(int inches)
   {
     leftDrive.move_velocity(maxBaseVelocity);
     leftDrive1.move_velocity(maxBaseVelocity);
+    leftDrive2.move_velocity(maxBaseVelocity);
+    leftDrive3.move_velocity(maxBaseVelocity);
     rightDrive.move_velocity(maxBaseVelocity);
     rightDrive1.move_velocity(maxBaseVelocity);
+    rightDrive2.move_velocity(maxBaseVelocity);
+    rightDrive3.move_velocity(maxBaseVelocity);
 
     while(leftDrive.get_position() < distance)
     {
@@ -246,15 +261,23 @@ void driveHard(int inches)
 
     leftDrive.move_velocity(0);
     leftDrive1.move_velocity(0);
+    leftDrive2.move_velocity(0);
+    leftDrive3.move_velocity(0);
     rightDrive.move_velocity(0);
     rightDrive1.move_velocity(0);
+    rightDrive2.move_velocity(0);
+    rightDrive3.move_velocity(0);
   }
   if(distance < 0)
   {
     leftDrive.move_velocity(-maxBaseVelocity);
     leftDrive1.move_velocity(-maxBaseVelocity);
+    leftDrive2.move_velocity(-maxBaseVelocity);
+    leftDrive3.move_velocity(-maxBaseVelocity);
     rightDrive.move_velocity(-maxBaseVelocity);
     rightDrive1.move_velocity(-maxBaseVelocity);
+    rightDrive2.move_velocity(-maxBaseVelocity);
+    rightDrive3.move_velocity(-maxBaseVelocity);
 
     while(leftDrive.get_position() > distance)
     {
@@ -270,15 +293,19 @@ void driveHard(int inches)
 
     leftDrive.move_velocity(0);
     leftDrive1.move_velocity(0);
+    leftDrive2.move_velocity(0);
+    leftDrive3.move_velocity(0);
     rightDrive.move_velocity(0);
     rightDrive1.move_velocity(0);
+    rightDrive2.move_velocity(0);
+    rightDrive3.move_velocity(0);
   }
 }
 
 void turn(int degrees)
 {
   resetDrive();
-    distance = degrees*3.325;
+    distance = degrees*3.4;
     int prevError = 0;
     int sp = distance;
 

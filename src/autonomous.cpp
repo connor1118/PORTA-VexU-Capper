@@ -34,10 +34,18 @@ void skills()
 void red()
 {
   //first shot and wall align
+  swing(100);
+  drive(12);
+  swing(0);
+  delay(500);
   shoot();
-  turn(-70);
-  driveHard(-5);
+  drive(-10);
+  turn(30);
+  drive(-6);
+  turn(-90);
+  drive(-14);
   //to first cap
+  delay(500);
   drive(38);
   intakeDrive();
   intake();
@@ -47,69 +55,100 @@ void red()
   drive(-5);
   //line up and grab second cap
   turn(90);
-  drive(-10);
+  drive(-13);
   driveHard(-5);
   swing(100);
-  drive(5);
+  drive(8);
   turn(90);
   //close post
-  drive(22);
+  drive(20);
   turn(90);
-  drive(16);
+  drive(14);
   drive(5);
-  //stack cap, turn, align, and shoot middle flag
+  //stack cap
   swingSlow(192);
   delay(2000);
+  swing(190);
   drive(-10);
   swing(0);
-  turn(90);
-  drive(-30);
-  intake();
-  drive(5);
-  turn(82);
-  stopIntake();
+  //wall align
+  turn(100);
   adjust(0);
+  intake();
+  drive(24);
+  turn(90);
+  stopIntake();
+  drive(-16);
+  //shoot bottom flag then middle flag if ball was intook
+  drive(8);
+  turn(-27);
   shoot();
+  delay(250);
+  intake();
+  adjust(1);
+  delay(3000);
+  shoot();
+
 }
 
 void blue()
 {
   //first shot and wall align
+  swing(100);
+  drive(12);
+  swing(0);
+  delay(500);
   shoot();
-  turn(70);
-  driveHard(-5);
+  drive(-10);
+  turn(-30);
+  drive(-6);
+  turn(90);
+  drive(-14);
   //to first cap
+  delay(500);
   drive(38);
   intakeDrive();
   intake();
   drive(-6);
   stopIntake();
   drive(15);
-  drive(-2);
+  drive(-5);
   //line up and grab second cap
-  turn(-92);
-  drive(-10);
+  turn(-90);
+  drive(-13);
   driveHard(-5);
   swing(100);
-  drive(5);
-  turn(-95);
-  drive(25);
-  turn(-95);
+  drive(8);
+  turn(-90);
+  //close post
+  drive(20);
+  turn(-90);
   drive(14);
   drive(5);
-  //stack cap, turn, align, and shoot middle flag
+  //stack cap
   swingSlow(192);
   delay(2000);
+  swing(190);
   drive(-10);
   swing(0);
-  turn(-90);
-  drive(-30);
-  intake();
-  drive(5);
-  turn(-82);
-  stopIntake();
+  //wall align
+  turn(-100);
   adjust(0);
+  intake();
+  drive(24);
+  turn(-90);
+  stopIntake();
+  drive(-16);
+  //shoot bottom flag then middle flag if ball was intook
+  drive(8);
+  turn(27);
   shoot();
+  delay(250);
+  intake();
+  adjust(1);
+  delay(3000);
+  shoot();
+
 }
 
 void test()
