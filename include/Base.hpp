@@ -11,4 +11,7 @@ void turnNoPID(int degrees);
 
 void resetDrive();
 
+void brake();
+void coast();
+
 #endif

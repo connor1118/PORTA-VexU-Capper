@@ -5,6 +5,8 @@ ADIDigitalIn B ('B');
 ADIDigitalIn C ('C');
 ADIDigitalIn D ('D');
 
+ADIDigitalIn Park ('H');
+
 void flipDrive()
 {
   flip();
@@ -46,51 +48,56 @@ void red()
   drive(-10);*/
   //to first cap
   delay(500);
-  swing(100);
   drive(38);
-  swing(0);
+  swing(100);
   intakeDrive();
 
-  drive(-6);
-  drive(13);
-  drive(-4);
+  drive(-24);
+  swing(0);
   //line up and grab second cap
-  turn(80);
-  drive(-13);
-  driveHard(-5);
-  swing(100);
-  drive(8);
-  //wall align
-  turn(-180);
-  drive(18);
-  drive(-12);
-  //close post
-  turn(-90);
-  drive(22);
+  turn(130);
+  drive(-28);
+  swing(120);
+  //to post
+  drive(3);
+  turn(45);
+  drive(14);
   turn(90);
-  drive(10);
+  drive(8);
   drive(5);
   //stack cap
-  swingSlow(194);
+  swingSlow(210);
   delay(2000);
-  swing(191);
+  swing(208);
   drive(-10);
   swing(0);
   //wall align
   turn(90);
   adjust(0);
   drive(14);
-  turn(90);
-  drive(-14);
+  turn(87);
+  drive(-10);
   //shoot bottom flag then middle flag if ball was intook
+  delay(500);
   drive(8);
-  turn(-35);
+  turn(-33);
   shoot();
   delay(250);
   intake();
   adjust(1);
   delay(3000);
   shoot();
+  if(Park.get_value())
+  {
+    turn(33);
+    intake();
+    drive(31);
+    driveHard(23);
+    stopIntake();
+    brake();
+    delay(500);
+    coast();
+  }
 
 }
 
@@ -109,51 +116,56 @@ void blue()
   drive(-10);*/
   //to first cap
   delay(500);
-  swing(100);
   drive(38);
-  swing(0);
+  swing(100);
   intakeDrive();
 
-  drive(-6);
-  drive(13);
-  drive(-4);
+  drive(-24);
+  swing(0);
   //line up and grab second cap
-  turn(-90);
-  drive(-13);
-  driveHard(-5);
-  swing(100);
-  drive(8);
-  //wall align
-  turn(180);
-  drive(22);
-  drive(-12);
-  //close post
-  turn(90);
-  drive(22);
-  turn(-90);
+  turn(-135);
+  drive(-28);
+  swing(120);
+  //to post
+  drive(3);
+  turn(-42);
+  drive(16);
+  turn(-88);
   drive(8);
   drive(5);
   //stack cap
-  swingSlow(194);
+  swingSlow(210);
   delay(2000);
-  swing(191);
+  swing(208);
   drive(-10);
   swing(0);
   //wall align
   turn(-90);
   adjust(0);
   drive(14);
-  turn(-90);
-  drive(-14);
+  turn(-87);
+  drive(-10);
   //shoot bottom flag then middle flag if ball was intook
+  delay(500);
   drive(8);
-  turn(34);
+  turn(39);
   shoot();
   delay(250);
   intake();
   adjust(1);
   delay(3000);
   shoot();
+  if(Park.get_value())
+  {
+    turn(-39);
+    intake();
+    drive(31);
+    driveHard(23);
+    stopIntake();
+    brake();
+    delay(500);
+    coast();
+  }
 
 }
 
